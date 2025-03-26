@@ -3,54 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Small Business Website</title>
+  <title>Our Business</title>
+  <!-- Importing a modern Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <h1>Welcome to Our Business</h1>
+    <p>Your partner in creative success</p>
+  </header>
+  
   <!-- Photo Slider Section -->
-  <div class="section slider">
-    <h2>Photo Slider</h2>
+  <section id="slider" class="section slider">
     <div class="slider-container">
-      <img src="https://via.placeholder.com/1200x400?text=Slide+1" alt="Slide 1">
-      <img src="https://via.placeholder.com/1200x400?text=Slide+2" alt="Slide 2">
-      <img src="https://via.placeholder.com/1200x400?text=Slide+3" alt="Slide 3">
+      <div class="slide active" style="background-image: url('https://via.placeholder.com/1200x500?text=Slide+1');"></div>
+      <div class="slide" style="background-image: url('https://via.placeholder.com/1200x500?text=Slide+2');"></div>
+      <div class="slide" style="background-image: url('https://via.placeholder.com/1200x500?text=Slide+3');"></div>
     </div>
-  </div>
+    <div class="slider-controls">
+      <span class="control prev">&#10094;</span>
+      <span class="control next">&#10095;</span>
+    </div>
+  </section>
 
   <!-- Who Are We Section -->
-  <div class="section who-we-are">
-    <h2>Who Are We</h2>
-    <p>
-      We are a passionate small business dedicated to delivering quality solutions. Our team focuses on creative and innovative approaches to meet your needs.
-    </p>
-  </div>
+  <section id="who" class="section who-we-are">
+    <div class="content">
+      <h2>Who Are We</h2>
+      <p>We are a dedicated team of creative professionals focused on innovation and excellence. Our passion drives us to craft solutions that truly resonate with our clients.</p>
+    </div>
+  </section>
 
   <!-- Our Activity Section -->
-  <div class="section our-activity">
-    <h2>Our Activity</h2>
-    <p>
-      Our activities range from consulting services to creative design. We work closely with our clients to develop projects that stand out.
-    </p>
-  </div>
+  <section id="activity" class="section our-activity">
+    <div class="content">
+      <h2>Our Activity</h2>
+      <p>From strategic consulting to bespoke design, our activities span a wide range of services tailored to help your business stand out and succeed in a competitive market.</p>
+    </div>
+  </section>
 
   <!-- Contact Us Section -->
-  <div class="section contact-us">
-    <h2>Contact Us</h2>
-    <form action="#" method="post">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-      </div>
-      <button type="submit">Send</button>
-    </form>
-  </div>
+  <section id="contact" class="section contact-us">
+    <div class="content">
+      <h2>Contact Us</h2>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Our Business. All rights reserved.</p>
+  </footer>
+
+  <!-- Simple JavaScript for slider functionality -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    const nextButton = document.querySelector('.control.next');
+    const prevButton = document.querySelector('.control.prev');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    nextButton.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    });
+
+    prevButton.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    });
+
+    // Auto-advance slides every 5 seconds
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }, 5000);
+  </script>
 </body>
 </html>
