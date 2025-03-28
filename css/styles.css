@@ -4,12 +4,10 @@
     padding: 0;
     box-sizing: border-box;
   }
-*::-webkit-scrollbar {
+
+/* html::-webkit-scrollbarP{
   display: none;
-}
-html::-webkit-scrollbarP{
-  display: none;
-}
+} */
   /* Global Styles */
   body {
     font-family: 'Poppins', sans-serif;
@@ -19,16 +17,16 @@ html::-webkit-scrollbarP{
   }
 
   /* Hide scrollbar for Chrome, Safari, and Opera */
-  /* html::-webkit-scrollbar,
+  html::-webkit-scrollbar,
   body::-webkit-scrollbar {
     display: none;
   }
 
   /* Hide scrollbar for IE, Edge, and Firefox */
-  body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  } */
+   /* body {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }   */
   
   /* Header */
   header {
